@@ -1,0 +1,184 @@
+// Load colors from file
+:root {
+    @import 'default-theme';
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: Rubik, Roboto, Ubuntu, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    -webkit-text-size-adjust: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong,
+b {
+    font-weight: 500;
+    margin: 0;
+}
+
+p {
+    margin: 0.5rem 0;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.router-link-no-style {
+    display: block;
+    color: inherit;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.muted {
+    color: var(--hint-color);
+}
+
+button {
+    font-family: Rubik, Roboto, Ubuntu, Arial, sans-serif;
+    font-size: 14px;
+    outline: none;
+    appearance: none !important;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none;
+    background: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.2s background-color;
+    transition: 0.05s transform;
+    user-select: none;
+}
+
+button:active {
+    transform: scale(0.995);
+}
+
+input {
+    appearance: none !important;
+    outline: none;
+    font-size: 14px;
+    -webkit-appearance: textfield;
+
+    &::placeholder {
+        opacity: 1;
+    }
+
+    &::-webkit-input-placeholder {
+        opacity: 1;
+    }
+
+    &::-webkit-search-cancel-button {
+        display: none;
+    }
+
+    &::-webkit-search-results-button {
+        display: none;
+    }
+
+    &::-webkit-search-decoration {
+        -webkit-appearance: none;
+    }
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        /* display: none; <- Crashes Chrome on hover */
+        -webkit-appearance: none;
+        margin: 0;
+        /* <-- Apparently some margin are still there even though it's hidden */
+    }
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield !important;
+}
+
+.content {
+    padding: 0 16px 24px 16px;
+    max-width: 520px;
+    margin: auto;
+}
+
+.content>.card {
+    // Adding margin to card if it's the first element in the content container
+    margin-top: 12px;
+}
+
+.skeleton {
+    display: block;
+    background: var(--skeleton-bg);
+    border-radius: 10px;
+    color: transparent;
+    user-select: none;
+    pointer-events: none;
+    fill: none;
+    opacity: .05;
+
+    &--inline {
+        display: inline-flex;
+        white-space: nowrap;
+        max-width: 100%;
+        overflow: hidden;
+    }
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: var(--bg-color);
+    background-clip: border-box;
+    border: 1px solid var(--bg-color);
+    border-radius: 15px;
+    box-shadow: 0 0.5rem 1.2rem var(--hint-color);
+    font-size: 14px;
+    user-select: none;
+
+    &+& {
+        margin-top: 18px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .card-row {
+        flex-direction: column;
+        align-items: flex-start;
+
+        &__name {
+            padding-bottom: 5px;
+        }
+    }
+
+    body {
+        -webkit-text-size-adjust: 100%;
+    }
+}
