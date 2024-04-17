@@ -1,6 +1,14 @@
 # Gautama фронтенд
 
-Запуск для теста в браузере:
+## Установка:
+
+```
+git clone https://kerekerekerek@dev.azure.com/kerekerekerek/Gautama/_git/Gautama
+cd gautama
+npm run install
+```
+
+## Запуск для теста в браузере:
 
 ```
 npm run dev
