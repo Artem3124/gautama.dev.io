@@ -8,7 +8,7 @@ html {
 }
 
 body {
-    font-family: Rubik, Roboto, Ubuntu, Arial, sans-serif;
+    font-family: Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
     margin: 0;
@@ -121,7 +121,6 @@ input[type=number] {
 }
 
 .content {
-    padding: 0 16px 24px 16px;
     max-width: 520px;
     margin: auto;
 }
