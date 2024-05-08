@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import SphereAndInstructions from '../components/Breathing/SphereAndInstructions.vue';
-import { getPracticeById } from '../components/Breathing/PracticesList.js'
+import { getPracticeById } from '../../components/Breathing/PracticesList';
+import SphereAndInstructions from '../../components/Breathing/SphereAndInstructions.vue';
 
 export default {
 

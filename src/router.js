@@ -1,7 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-// Routes
-import PageIndex from '@/views/PageIndex.vue';
+const PageIndex = () => import('@/views/PageIndex.vue');
+const PagePracticeIndex = () => import('@/views/practices/PageIndex.vue');
+const PageBreathPractice = () => import('@/views/practices/PageBreathingPractice.vue');
+const PageMediationPractice = () => import('@/views/practices/PageMeditationPractice.vue');
+const PageActivities = () => import('@/views/PageActivities.vue');
+const PageReferrals = () => import('@/views/PageReferrals.vue');
 
 const router = createRouter({
     history: createWebHistory(),
@@ -9,13 +13,37 @@ const router = createRouter({
         {
             path: '/',
             name: 'index',
-            component: () => import('@/views/PageIndex.vue'),
+            component: PageIndex,
         },
         {
-            path: '/breath/:id',
+            path: '/practices',
+            name: 'practices',
+            component: PagePracticeIndex,
+        },
+        {
+            path: '/practices/breath/:id',
             name: 'breath',
-            component: () => import('@/views/PageBreathPractice.vue'), // Lazy loading
+            component: PageBreathPractice,
             props: true,
+        },
+        {
+            path: '/practices/meditation/:id',
+            name: 'meditation',
+            component: PageMediationPractice,
+        },
+        {
+            path: '/activities',
+            name: 'activites',
+            component: PageActivities,
+        },
+        {
+            path: '/referrals',
+            name: 'referrals',
+            component: PageReferrals,
+        },
+        {
+            path: '/:pathMatch(.*)*',
+            redirect: { name: 'index' },
         },
     ],
 });
