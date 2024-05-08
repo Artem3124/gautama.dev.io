@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Activities from '../components/Activities/Activities.vue';
+import Activities from '@/components/Activities/Activities.vue';
 
 export default {
     components: {
