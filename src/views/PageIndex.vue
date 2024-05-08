@@ -1,23 +1,17 @@
 <template>
     <main class="content">
         <MainScreen />
-        <div class="index-page-container">
-            <!-- <div class="index-page-container--shtorka"></div> -->
-            <ActivitiesSelector />
-        </div>
     </main>
 </template>
 
 <script>
-import MainScreen from '../components/MainScreen.vue';
-import ActivitiesSelector from '../components/ActivitiesSelector.vue';
+import MainScreen from '../components/MainScreen/MainScreen.vue';
 
 export default {
     components: {
         MainScreen,
-        ActivitiesSelector,
     }
-}
+};
 </script>
 
 <style lang="scss">

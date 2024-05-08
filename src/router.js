@@ -9,7 +9,13 @@ const router = createRouter({
         {
             path: '/',
             name: 'index',
-            component: PageIndex,
+            component: () => import('@/views/PageIndex.vue'),
+        },
+        {
+            path: '/breath/:id',
+            name: 'breath',
+            component: () => import('@/views/PageBreathPractice.vue'), // Lazy loading
+            props: true,
         },
     ],
 });

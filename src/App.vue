@@ -1,6 +1,16 @@
 <template>
-  <RouterView />
+    <RouterView />
+    <AppNavbar />
 </template>
 
-<style>
-</style>
+<script>
+import AppNavbar from '@/components/AppNavbar.vue';
+
+export default {
+    components: {
+        AppNavbar,
+    }
+};
+</script>
+
+<style></style>
