@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "ESLINT_USE_FLAT_CONFIG=false npx eslint --config ./eslint.config.cjs --ext .js --ext .vue ./src",
+    "lint-autofix": "ESLINT_USE_FLAT_CONFIG=false npx eslint --config ./eslint.config.cjs --ext .js --ext .vue ./src --fix"
   },
   "dependencies": {
     "@twa-dev/sdk": "^7.0.0",
@@ -17,6 +19,8 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
+    "eslint": "^9.2.0",
+    "eslint-plugin-vue": "^9.26.0",
     "sass": "^1.75.0",
     "vite": "^5.2.0",
     "vite-svg-loader": "^5.1.0",
