@@ -1,21 +1,37 @@
 <template>
     <div class="navbar">
-        <div class="navbar__icon">
-            <NavbarHome />
-            <div>Home</div>
-        </div>
-        <div class="navbar__icon">
-            <NavbarYoga />
-            <div>Practices</div>
-        </div>
-        <div class="navbar__icon">
-            <NavbarActivities />
-            <div>Activities</div>
-        </div>
-        <div class="navbar__icon">
-            <NavbarReferrals />
-            <div>Referrals</div>
-        </div>
+        <RouterLink :to="{ name: 'index' }">
+            <div class="navbar__icon">
+                <NavbarHome />
+                <div>
+                    Home
+                </div>
+            </div>
+        </RouterLink>
+        <RouterLink :to="{ name: 'practices' }">
+            <div class="navbar__icon">
+                <NavbarYoga />
+                <div>
+                    Practices
+                </div>
+            </div>
+        </RouterLink>
+        <RouterLink :to="{ name: 'activites' }">
+            <div class="navbar__icon">
+                <NavbarActivities />
+                <div>
+                    Activities
+                </div>
+            </div>
+        </RouterLink>
+        <RouterLink :to="{ name: 'referrals' }">
+            <div class="navbar__icon">
+                <NavbarReferrals />
+                <div>
+                    Referrals
+                </div>
+            </div>
+        </RouterLink>
     </div>
 </template>
 
@@ -24,7 +40,6 @@ import NavbarHome from '@/assets/img/icons/NavbarHome.svg';
 import NavbarYoga from '@/assets/img/icons/NavbarYoga.svg';
 import NavbarActivities from '@/assets/img/icons/NavbarActivities.svg';
 import NavbarReferrals from '@/assets/img/icons/NavbarReferrals.svg';
-
 
 export default {
     components: {
