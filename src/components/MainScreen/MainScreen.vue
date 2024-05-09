@@ -7,7 +7,6 @@
 <script>
 import GradientSphere from './GradientSphere.vue';
 
-
 export default {
     components: {
         GradientSphere,

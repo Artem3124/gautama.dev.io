@@ -7,7 +7,6 @@
 <script>
 import MainScreen from '@/components/MainScreen/MainScreen.vue';
 
-
 export default {
     components: {
         MainScreen,
