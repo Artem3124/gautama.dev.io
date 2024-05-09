@@ -1,6 +1,6 @@
 <template>
     <div class="navbar">
-        <RouterLink :to="{ name: 'index' }">
+        <RouterLink class="router-link-no-style" :to="{ name: 'index' }" active-class="active-icon">
             <div class="navbar__icon">
                 <NavbarHome />
                 <div>
@@ -8,7 +8,7 @@
                 </div>
             </div>
         </RouterLink>
-        <RouterLink :to="{ name: 'practices' }">
+        <RouterLink class="router-link-no-style" :to="{ name: 'practices' }" active-class="active-icon">
             <div class="navbar__icon">
                 <NavbarYoga />
                 <div>
@@ -16,7 +16,7 @@
                 </div>
             </div>
         </RouterLink>
-        <RouterLink :to="{ name: 'activites' }">
+        <RouterLink class="router-link-no-style" :to="{ name: 'activites' }" active-class="active-icon">
             <div class="navbar__icon">
                 <NavbarActivities />
                 <div>
@@ -24,7 +24,7 @@
                 </div>
             </div>
         </RouterLink>
-        <RouterLink :to="{ name: 'referrals' }">
+        <RouterLink class="router-link-no-style" :to="{ name: 'referrals' }" active-class="active-icon">
             <div class="navbar__icon">
                 <NavbarReferrals />
                 <div>
@@ -52,6 +52,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.active-icon .navbar__icon,
+.active-icon .navbar__icon svg {
+    color: var(--navbar-color);
+}
+
 .navbar {
     width: 100dvw;
     height: 70px;
@@ -78,12 +83,12 @@ export default {
         align-items: center;
         justify-content: center;
         font-size: 12px;
-        color: var(--navbar-color);
+        color: var(--hint-color);
 
         svg {
             width: 30px;
             height: 30px;
-            color: var(--navbar-color);
+            color: var(--hint-color);
             padding-bottom: 3px;
         }
     }
