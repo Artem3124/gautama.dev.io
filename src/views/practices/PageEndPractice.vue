@@ -1,7 +1,7 @@
 <template>
-    <div>
-        <CardWrapper :theme="theme">
-        <p>Card wrapper has wrapped me!</p>
+    <div style="color: white">
+        <CardWrapper style="height: 300px" :theme="theme">
+         <p>Card wrapper has wrapped me!</p>
         </CardWrapper>
     </div>
 </template>
