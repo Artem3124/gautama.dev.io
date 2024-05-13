@@ -1,5 +1,5 @@
 <template>
-    <div style="color: white">
+    <div style="color: white" class="content">
         <CardWrapper style="height: 300px" :theme="theme">
          <p>Card wrapper has wrapped me!</p>
         </CardWrapper>

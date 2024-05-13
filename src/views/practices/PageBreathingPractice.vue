@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="content">
         <SphereAndInstructions :intervals="getIntervals" />
     </div>
 </template>
