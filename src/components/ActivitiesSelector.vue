@@ -1,8 +1,11 @@
 <template>
     <div class="activities-selector--container">
-        <div v-for="activity in activities" class="activities-selector__block" 
-            :class="`activities-selector__block_${activity.name}`" 
-            :key="activity.id">
+        <div
+            v-for="activity in activities"
+            :key="activity.id" 
+            class="activities-selector__block" 
+            :class="`activities-selector__block_${activity.name}`"
+        >
             <div class="activities-selector__block--title">
                 {{ activity.title }}
             </div>

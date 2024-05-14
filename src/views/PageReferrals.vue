@@ -2,7 +2,7 @@
     <p>Referrals</p>
 </template>
 <script>
-    export default {
-    }
+export default {
+}
 </script>
 

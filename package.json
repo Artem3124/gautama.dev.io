@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "vite --host",
+    "build": "vite build && cd dist/ && zip prod.zip -r .",
     "preview": "vite preview",
     "lint": "ESLINT_USE_FLAT_CONFIG=false npx eslint --config ./eslint.config.cjs --ext .js --ext .vue ./src",
     "lint-autofix": "ESLINT_USE_FLAT_CONFIG=false npx eslint --config ./eslint.config.cjs --ext .js --ext .vue ./src --fix"

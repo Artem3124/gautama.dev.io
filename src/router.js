@@ -6,6 +6,7 @@ const PageBreathPractice = () => import('@/views/practices/PageBreathingPractice
 const PageMediationPractice = () => import('@/views/practices/PageMeditationPractice.vue');
 const PageActivities = () => import('@/views/PageActivities.vue');
 const PageReferrals = () => import('@/views/PageReferrals.vue');
+const PageEndPractice = () => import('@/views/practices/PageEndPractice.vue');
 
 const router = createRouter({
     history: createWebHistory(),
@@ -19,6 +20,12 @@ const router = createRouter({
             path: '/practices',
             name: 'practices',
             component: PagePracticeIndex,
+        },
+        {
+            path: '/practices/end/:theme',
+            name: 'practice-end',
+            component: PageEndPractice,
+            props: true,
         },
         {
             path: '/practices/breath/:id',
