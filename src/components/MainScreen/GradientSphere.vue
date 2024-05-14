@@ -1,20 +1,32 @@
 <template>
-    <div class="gradient-sphere">
+    <div
+        class="gradient-sphere"
+        @click="openPractice"
+    >
         <!-- <div class="gradient-sphere--lines">
             <BreathingLines/>
         </div>   -->
-        <div class="gradient-sphere--text">Practice</div>
-        <div class="gradient-sphere--bg"></div>
-        <div class="gradient-sphere--new-lines"></div>
+        <div class="gradient-sphere--text">
+            Practice
+        </div>
+        <div class="gradient-sphere--bg" />
+        <div class="gradient-sphere--new-lines" />
     </div>
 </template>
 
 <script>
-import BreathingLines from '@/assets/svg/breathing-lines.svg';
+// import BreathingLines from '@/assets/img/breathing-lines.svg';
 
 export default {
-    components: {
-        BreathingLines,
+    methods: {
+        openPractice() {
+            this.$router.push({
+                name: 'breath',
+                params: {
+                    id: 0,
+                },
+            })
+        }
     }
 }
 </script>
@@ -22,6 +34,7 @@ export default {
 <style lang="scss">
 .gradient-sphere {
     position: relative;
+    white-space: pre;
 
     &--lines {
         position: absolute;
@@ -40,7 +53,7 @@ export default {
 
     &--text {
         color: var(--bg-color);
-        font-size: 28px;
+        font-size: 24px;
         font-weight: 800;
         position: absolute;
         top: 50%;
@@ -50,11 +63,9 @@ export default {
     }
 
     &--bg {
-        z-index: 300;
+        z-index: 3000;
         width: 55vw;
         height: 55vw;
-        max-width: 312px; // Might delete later
-        max-height: 312px; // Might delete later
         border-radius: 50%;
         background-color: #7ba4fc;
         border: 2px solid white;
@@ -77,6 +88,19 @@ export default {
         border: 2px solid white;
         animation: test 5s ease-in infinite;
     }
+}
+
+.gradient-sphere-second {
+    z-index: 10;
+    width: 55vw;
+    height: 55vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 50%;
+    opacity: .2;
 }
 
 @keyframes mainScreenSphere {

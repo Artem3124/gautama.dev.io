@@ -1,6 +1,8 @@
 <template>
     <RouterView />
-    <AppNavbar />
+    <transition name="navbar-hide">
+        <AppNavbar v-if="!['breath'].includes($route.name)" />
+    </transition>
 </template>
 
 <script>

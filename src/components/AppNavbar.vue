@@ -1,6 +1,10 @@
 <template>
     <div class="navbar">
-        <RouterLink class="router-link-no-style" :to="{ name: 'index' }" active-class="active-icon">
+        <RouterLink
+            class="router-link-no-style"
+            :to="{ name: 'index' }"
+            active-class="active-icon"
+        >
             <div class="navbar__icon">
                 <NavbarHome />
                 <div>
@@ -8,7 +12,11 @@
                 </div>
             </div>
         </RouterLink>
-        <RouterLink class="router-link-no-style" :to="{ name: 'practices' }" active-class="active-icon">
+        <RouterLink
+            class="router-link-no-style"
+            :to="{ name: 'practices' }"
+            active-class="active-icon"
+        >
             <div class="navbar__icon">
                 <NavbarYoga />
                 <div>
@@ -16,7 +24,11 @@
                 </div>
             </div>
         </RouterLink>
-        <RouterLink class="router-link-no-style" :to="{ name: 'activites' }" active-class="active-icon">
+        <RouterLink
+            class="router-link-no-style"
+            :to="{ name: 'activites' }"
+            active-class="active-icon"
+        >
             <div class="navbar__icon">
                 <NavbarActivities />
                 <div>
@@ -24,7 +36,11 @@
                 </div>
             </div>
         </RouterLink>
-        <RouterLink class="router-link-no-style" :to="{ name: 'referrals' }" active-class="active-icon">
+        <RouterLink
+            class="router-link-no-style"
+            :to="{ name: 'referrals' }"
+            active-class="active-icon"
+        >
             <div class="navbar__icon">
                 <NavbarReferrals />
                 <div>
@@ -92,5 +108,15 @@ export default {
             padding-bottom: 3px;
         }
     }
+}
+
+.navbar-hide-enter-active,
+.navbar-hide-leave-active {
+    transition: 0.5s ease-in-out;
+}
+
+.navbar-hide-enter-from,
+.navbar-hide-leave-to {
+    transform: translateY(70px);
 }
 </style>
