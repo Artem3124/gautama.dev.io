@@ -6,13 +6,14 @@
 </template>
 
 <script>
-import { getRandomImagePathByTheme } from './ImageRandomizer';
+import { getRandomImagePathByTheme } from '@/shared/services/ImageRandomizer.js';
 
 const dimOnTheme = (theme) => {
     const result = {
         base: 'rgba(187,188,208, 0.57), rgba(187,188,208, 0.57)',
-        piece: 'darkTheme',
-        concentation: 'lightTheme',
+        peace: 'rgba(55, 181, 165, .35), rgba(55, 181, 165, .35)',
+        sleep: 'rgba(177, 121, 198, 0.41), rgba(177, 121, 198, 0.41)',
+        concentration: 'rgba(215, 124, 170, .43), rgba(215, 124, 170, .43)',
     };
 
     if (!result[theme]) {
@@ -36,12 +37,10 @@ export default {
     },
 
     computed: {
-        imagePath() {
-            return this.backgroundImagePath ? this.backgroundImagePath : getRandomImagePathByTheme(this.theme);
-        },
         cssProperties() {
+            const imagePath = this.backgroundImagePath ? this.backgroundImagePath : getRandomImagePathByTheme(this.theme);
             return {
-                backgroundImage: `linear-gradient(${dimOnTheme(this.theme)}), url('${this.imagePath}')`,
+               backgroundImage: `linear-gradient(${dimOnTheme(this.theme)}), url('${imagePath}')`,
             }
         },
     },

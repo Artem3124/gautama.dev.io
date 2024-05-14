@@ -1,19 +1,22 @@
 <template>
-    <div style="color: white" class="content end-page">
-        <h1 class="end-page__header">Stay tuned</h1>
-        <div class="end-page__karma-counter">
-            <KarmaIcon /> + 40
-        </div>
+    <div :style="background" class="content end-page">
+        <div class="end-page__header">Stay tuned</div>
         <CardWrapper class="end-page__card" :theme="theme">
-            <h2 class="end-page__card--content">Motivation stupid bullshit makes you stronger</h2>
-            <button :class="`end-page__card--button base-btn ${theme}`">Share</button>
+            <p class="end-page__card--content">Motivation stupid bullshit makes you stronger</p>
+            <button :class="`end-page__card--button ${theme}-btn `">Share</button>
         </CardWrapper>
+        <div class="end-page__karma-counter">
+            <Text>+ 30</Text>
+            <KarmaIcon />
+        </div>
     </div>
 </template>
 
 <script>
 import CardWrapper from '@/components/CardWrapper/CardWrapper.vue';
 import KarmaIcon from '@/assets/svg/icons/KarmaCoin.svg';
+import { getBackgroundByTheme } from '@/shared/services/ThemeProvider';
+import { Text } from 'vue';
 
 export default {
     props: {
@@ -25,29 +28,33 @@ export default {
     },
 
     components: {
-        KarmaIcon,
         CardWrapper,
+        KarmaIcon,
     },
 
-    data() {
-        return {
-            id: this.theme,
-        };
+    computed: {
+        background() {
+            const bg = getBackgroundByTheme(this.theme);
+            return {
+                background: `url('${bg}')`,
+                backgroundSize: 'auto auto',
+                backgroundPosition: 'top',
+            }
+        },
     },
 };
-
 </script>
 
 <style lang="scss">
 .end-page {
     text-align: center;
-    background: url('/src/assets/svg/mainBaseBackground.svg');
-    background-size: auto auto;
-    background-position: center;
+    color: white;
     height: 100vh;
 
     &__header {
-        padding-top: 3em;
+        padding-top: 1.5em;
+        font-size: 2em;
+        font-weight: 500;
         text-align: --webkit-center;
         text-align: -moz-center;
     }
@@ -68,12 +75,16 @@ export default {
     }
 
     &__karma-counter {
-        margin-top: 1em;
-        font-size: 1.5em;
+        margin-top: -0.5em;
+        font-size: 2em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
 
         svg {
-            width: 30px;
-            height: 30px;
+            width: 55px;
+            height: 55px;
         }
     }
 }
