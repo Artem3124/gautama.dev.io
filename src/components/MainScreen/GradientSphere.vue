@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import BreathingLines from '@/assets/img/breathing-lines.svg';
+import BreathingLines from '@/assets/svg/breathing-lines.svg';
 
 export default {
     components: {

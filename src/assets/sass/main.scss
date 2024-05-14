@@ -67,7 +67,7 @@ button {
     outline: none;
     padding: 0;
     margin: 0;
-    border-radius: 0.5rem;
+    border-radius: 2em;
     font-weight: 500;
     text-decoration: none;
     cursor: pointer;
@@ -79,6 +79,34 @@ button {
 button:active {
     transform: scale(0.995);
 }
+
+.white-bg-btn {
+    font-size: 25px !important;
+    background-color: #FFFCF0;
+    padding: 0.3em 1.5em;
+    font-weight: 500;
+}
+
+.base-btn {
+    @extend .white-bg-btn;
+    color: #94B4F1;
+}
+
+.piece-btn {
+    @extend .white-bg-btn;
+    color: #38B0A8;
+}
+
+.concentration-btn {
+    @extend .white-bg-btn;
+    color: #D77BAA;
+}
+
+.sleep-btn {
+    @extend .white-bg-btn;
+    color: #D79CE7;
+}
+
 
 input {
     appearance: none !important;

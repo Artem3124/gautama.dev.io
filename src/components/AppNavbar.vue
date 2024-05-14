@@ -36,10 +36,10 @@
 </template>
 
 <script>
-import NavbarHome from '@/assets/img/icons/NavbarHome.svg';
-import NavbarYoga from '@/assets/img/icons/NavbarYoga.svg';
-import NavbarActivities from '@/assets/img/icons/NavbarActivities.svg';
-import NavbarReferrals from '@/assets/img/icons/NavbarReferrals.svg';
+import NavbarHome from '@/assets/svg/icons/NavbarHome.svg';
+import NavbarYoga from '@/assets/svg/icons/NavbarYoga.svg';
+import NavbarActivities from '@/assets/svg/icons/NavbarActivities.svg';
+import NavbarReferrals from '@/assets/svg/icons/NavbarReferrals.svg';
 
 export default {
     components: {

@@ -1,18 +1,16 @@
 <template>
     <!-- Provide global themes for block-themes -->
     <div class="card-wrapper" :style="cssProperties" :class="`block-theme-${theme}`">
-        <h1>Current theme is {{ theme }}</h1>
-        <h1>{{this.imagePath}}</h1>
-    <slot></slot>
+        <slot></slot>
     </div>
 </template>
 
 <script>
 import { getRandomImagePathByTheme } from './ImageRandomizer';
 
-const dimOnTheme = (theme) => { 
+const dimOnTheme = (theme) => {
     const result = {
-        base: 'rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)',
+        base: 'rgba(187,188,208, 0.57), rgba(187,188,208, 0.57)',
         piece: 'darkTheme',
         concentation: 'lightTheme',
     };
@@ -52,8 +50,7 @@ export default {
 </script>
 
 <style>
-
-.card-wrapper { 
+.card-wrapper {
     border-radius: 10px;
     padding: 20px;
     margin: 10px;

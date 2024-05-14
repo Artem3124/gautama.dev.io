@@ -1,5 +1,5 @@
 const images = {
-    "base": [ "/src/assets/img/image.png" ],
+    "base": [ "/src/assets/img/image.png", "/src/assets/img/end-base.jpeg"],
     "piece": [ "" ],
     "concentation": [ "" ],
 }
