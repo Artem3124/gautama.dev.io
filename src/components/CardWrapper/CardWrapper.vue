@@ -1,24 +1,19 @@
 <template>
     <!-- Provide global themes for block-themes -->
-    <div
-        class="card-wrapper"
-        :style="cssProperties"
-        :class="`block-theme-${theme}`"
-    >
-        <h1>Current theme is {{ theme }}</h1>
-        <h1>{{ imagePath }}</h1>
-        <slot />
+    <div class="card-wrapper" :style="cssProperties" :class="`block-theme-${theme}`">
+        <slot></slot>
     </div>
 </template>
 
 <script>
-import { getRandomImagePathByTheme } from './ImageRandomizer';
+import { getRandomImagePathByTheme } from '@/shared/services/ImageRandomizer.js';
 
-const dimOnTheme = (theme) => { 
+const dimOnTheme = (theme) => {
     const result = {
-        base: 'rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)',
-        piece: 'darkTheme',
-        concentation: 'lightTheme',
+        base: 'rgba(187,188,208, 0.57), rgba(187,188,208, 0.57)',
+        peace: 'rgba(55, 181, 165, .35), rgba(55, 181, 165, .35)',
+        sleep: 'rgba(177, 121, 198, 0.41), rgba(177, 121, 198, 0.41)',
+        concentration: 'rgba(215, 124, 170, .43), rgba(215, 124, 170, .43)',
     };
 
     if (!result[theme]) {
@@ -42,12 +37,10 @@ export default {
     },
 
     computed: {
-        imagePath() {
-            return this.backgroundImagePath ? this.backgroundImagePath : getRandomImagePathByTheme(this.theme);
-        },
         cssProperties() {
+            const imagePath = this.backgroundImagePath ? this.backgroundImagePath : getRandomImagePathByTheme(this.theme);
             return {
-                backgroundImage: `linear-gradient(${dimOnTheme(this.theme)}), url('${this.imagePath}')`,
+               backgroundImage: `linear-gradient(${dimOnTheme(this.theme)}), url('${imagePath}')`,
             }
         },
     },
@@ -56,8 +49,7 @@ export default {
 </script>
 
 <style>
-
-.card-wrapper { 
+.card-wrapper {
     border-radius: 10px;
     padding: 20px;
     margin: 10px;
