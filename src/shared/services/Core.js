@@ -9,6 +9,12 @@ const is = {
     boolean: (b) => typeof b === 'boolean',
 }
 
+const extractFromString = { 
+    number: (s) => parseInt(Object.values(s).map(c => !isNaN(parseInt(c)) ? c : undefined).join('')), 
+    string: (s) => Object.values(s).map(c => !isNaN(parseInt(c)) ? undefined : c).join(''),
+}
+
 export { 
     is,
+    extractFromString,
 }
