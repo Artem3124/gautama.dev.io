@@ -75,7 +75,7 @@ export default {
 
 .navbar {
     width: 100dvw;
-    height: 70px;
+    height: var(--navbar-height);
     background-color: var(--bg-color);
     border-radius: 15px 15px 0 0;
     position: fixed;

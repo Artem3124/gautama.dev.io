@@ -35,6 +35,7 @@ export default {
 .gradient-sphere {
     position: relative;
     white-space: pre;
+    cursor: pointer;
 
     &--lines {
         position: absolute;
@@ -60,6 +61,7 @@ export default {
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 999;
+        user-select: none;
     }
 
     &--bg {
