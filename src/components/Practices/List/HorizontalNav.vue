@@ -20,9 +20,14 @@ export default {
 
     methods: {
         scrollTo(el) {
-            document.getElementById(el).scrollIntoView({
-                behavior: 'smooth',
-            });
+            this.selected = el;
+            try {
+                document.getElementById(el).scrollIntoView({
+                    behavior: 'smooth',
+                });
+            } catch (e) {
+                console.error(e)
+            }
         }
     }
 }
