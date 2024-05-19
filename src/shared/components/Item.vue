@@ -12,11 +12,13 @@
 <script>
 export default {
   props: {
+    // background: If the item should have a background
     background: {
       type: Boolean,
       required: false,
       default: false,
     },
+    // underLine: If the item should have an underline
     underLine: {
       type: Boolean,
       required: false,
