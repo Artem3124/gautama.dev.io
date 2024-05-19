@@ -1,6 +1,6 @@
 <template>
     <div class="content">
-        Activities
+        <Activities />
     </div>
 </template>
 
