@@ -10,6 +10,9 @@
     "lint": "ESLINT_USE_FLAT_CONFIG=false npx eslint --config ./eslint.config.cjs --ext .js --ext .vue ./src",
     "lint-autofix": "ESLINT_USE_FLAT_CONFIG=false npx eslint --config ./eslint.config.cjs --ext .js --ext .vue ./src --fix"
   },
+  "prettier": {
+    "tabWidth": 4
+  },
   "dependencies": {
     "@twa-dev/sdk": "^7.0.0",
     "axios": "^1.6.8",
