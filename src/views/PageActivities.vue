@@ -45,13 +45,14 @@ import KarmaCounter from "@/shared/components/KarmaCounter.vue";
 import Item from "@/shared/components/Item.vue";
 import ItemsList from "@/shared/components/ItemsList.vue";
 import TaskIcon from "@/assets/svg/icons/Task.svg";
+import { icon } from "@/shared/models/iconEnum";
 
 const items = [
-  { content: "Long important shit 3", karma: 34 },
-  { content: "Long important shit 3", karma: 34 },
-  { content: "Long important shit 3", karma: 34 },
-  { content: "Long important shit 3", karma: 34 },
-  { content: "Long important shit 3", karma: 34 },
+  { content: "Long important shit 3", karma: "34", icon: icon.Task },
+  { content: "Long important shit 3", karma: "34", icon: icon.Task },
+  { content: "Long important shit 3", karma: "34", icon: icon.Task },
+  { content: "Long important shit 3", karma: "34", icon: icon.Initials },
+  { content: "Long important shit 3", karma: "34", icon: icon.Gift },
 ];
 
 export default {
