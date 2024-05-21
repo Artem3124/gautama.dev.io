@@ -37,7 +37,7 @@ export default {
             const bg = getBackgroundByTheme(this.theme);
             return {
                 background: `url('${bg}')`,
-                backgroundSize: 'auto auto',
+                backgroundSize: 'auto 100vh',
                 backgroundPosition: 'top',
             }
         },

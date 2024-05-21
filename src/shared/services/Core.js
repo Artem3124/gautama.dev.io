@@ -18,4 +18,19 @@ const array = {
     sum: (arr) => arr.reduce((a, b) => a + b, 0),
 };
 
-export { is, enumProcessor, array };
+// extractFromString.number("1234fdasfd") => 1234
+// extractFromString.number("fdasfd") => fdasfd
+const extractFromString = {
+    number: (s) =>
+        parseInt(
+            Object.values(s)
+                .map((c) => (!isNaN(parseInt(c)) ? c : undefined))
+                .join(""),
+        ),
+    string: (s) =>
+        Object.values(s)
+            .map((c) => (!isNaN(parseInt(c)) ? undefined : c))
+            .join(""),
+};
+
+export { is, enumProcessor, array, extractFromString };

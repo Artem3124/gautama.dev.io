@@ -199,6 +199,12 @@ input[type=number] {
     }
 }
 
+.main-bg {  
+    background: url('/src/assets/svg/backgrounds/base-bg.svg') no-repeat fixed;
+    background-size: auto 100vh;
+    background-position: top;
+}
+
 @media screen and (max-width: 480px) {
     .card-row {
         flex-direction: column;
