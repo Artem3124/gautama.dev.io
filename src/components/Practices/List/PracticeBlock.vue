@@ -42,7 +42,7 @@
         <template #practice-description>
             {{ practice.description }}
         </template>
-        <template #practice-duration> {{ duration }} Minutes </template>
+        <template #practice-duration> {{ duration }} m. </template>
         <template #practice-rewards>
             {{ practice.reward }}
         </template>
@@ -138,7 +138,6 @@ export default {
 
     &__content {
         padding: 20px 20px 10px 20px;
-        // background-color: #00000020;
         height: 100%;
         display: flex;
         flex-direction: column;

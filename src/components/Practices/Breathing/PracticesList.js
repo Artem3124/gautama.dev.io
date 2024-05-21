@@ -12,6 +12,7 @@ export const breathingPractices = [
             "Free breathing is a simple and effective technique that can significantly enhance your physical and mental well-being.",
         //imagePath: "skyblue1.jpg",
         imagePath: "/src/assets/img/end-peace.png",
+        reward: 33,
     },
     // id(1) - Everyday practice extended
     {

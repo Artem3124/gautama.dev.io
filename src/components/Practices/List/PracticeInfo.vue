@@ -18,26 +18,34 @@
                         class="practice-info__card__content__description-slot"
                     ></slot>
                 </div>
-                <div class="practice-info__card__content__block">
-                    <ClockIcon
-                        class="practice-info__card__content__block__icon"
-                    />
+                <div class="practice-info__card__content__stats">
+                    <div class="practice-info__card__content__stats__block">
+                        <ClockIcon
+                            class="practice-info__card__content__stats__block__icon"
+                        />
 
-                    <div class="practice-info__card__content__block-wrap">
-                        <slot
-                            name="practice-duration"
-                            class="practice-info__card__content__block-slot"
-                        ></slot>
+                        <div
+                            class="practice-info__card__content__stats__block-wrap"
+                        >
+                            <slot
+                                name="practice-duration"
+                                class="practice-info__card__content__stats__block-slot"
+                            ></slot>
+                        </div>
                     </div>
-                </div>
-                <div class="practice-info__card__content__block">
-                    <ClockIcon
-                        class="practice-info__card__content__block__icon"
-                    />
-                    <slot
-                        name="practice-rewards"
-                        class="practice-info__card__content__rewards-slot"
-                    ></slot>
+                    <div class="practice-info__card__content__stats__block">
+                        <KarmaIconNoBg
+                            class="practice-info__card__content__stats__block__icon"
+                        />
+                        <div
+                            class="practice-info__card__content__stats__block-wrap"
+                        >
+                            <slot
+                                name="practice-rewards"
+                                class="practice-info__card__content__stats__block-slot"
+                            ></slot>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -48,6 +56,7 @@
 import { appearance } from "@/shared/services/Computed";
 import BackToPage from "@/assets/svg/icons/BackToPage.svg";
 import ClockIcon from "@/assets/icons/Clock.svg";
+import KarmaIconNoBg from "@/assets/svg/icons/KarmaIconNoBg.svg";
 
 export default {
     props: {
@@ -68,6 +77,7 @@ export default {
     components: {
         BackToPage,
         ClockIcon,
+        KarmaIconNoBg,
     },
 
     computed: {
@@ -127,29 +137,37 @@ export default {
                 margin-bottom: 5em;
             }
 
-            &__block {
-                font-size: 16px;
-                font-weight: 400;
-                text-align: center;
+            &__stats {
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
                 align-items: center;
-                background: rgb(255, 255, 255, 0.2);
-                backdrop-filter: blur(0.5em);
-                border-radius: 1em;
                 margin-bottom: 1em;
-                padding: 0.5em 1em;
 
-                &-wrap {
-                    font-size: 2em;
-                    height: fit-content;
-                    width: fit-content;
-                }
+                &__block {
+                    font-size: 16px;
+                    font-weight: 400;
+                    text-align: center;
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    background: rgba(255, 255, 255, 0.2);
+                    backdrop-filter: blur(0.5em);
+                    border-radius: 0.5em;
+                    margin: 0 0.5em;
+                    width: -webkit-fill-available;
+                    padding: 0.5em 1em;
 
-                &__icon {
-                    width: 4em;
-                    height: auto;
+                    &-wrap {
+                        font-size: 2em;
+                        height: fit-content;
+                        width: fit-content;
+                    }
+
+                    &__icon {
+                        width: 2em;
+                        height: auto;
+                    }
                 }
             }
 
