@@ -16,7 +16,7 @@
                                 class="practice-list-block__icon--clock"
                             />
                         </div>
-                        <div>{{ practice.duration }}</div>
+                        <div>{{ duration }} min.</div>
                     </div>
                 </div>
                 <router-link
@@ -33,9 +33,19 @@
     <PracticeInfo
         v-if="popupTriggers.buttonTrigger"
         :practice="practice"
+        :imagePath="practice.imagePath"
         :togglePopup="() => togglePopup('buttonTrigger')"
     >
-        <h2>My Button PracticeInfo</h2>
+        <template #practice-name>
+            {{ practice.name }}
+        </template>
+        <template #practice-description>
+            {{ practice.description }}
+        </template>
+        <template #practice-duration> {{ duration }} Minutes </template>
+        <template #practice-rewards>
+            {{ practice.reward }}
+        </template>
     </PracticeInfo>
 </template>
 
@@ -43,10 +53,13 @@
 import PlayButton from "@/assets/icons/PlayButton.svg";
 import ClockIcon from "@/assets/icons/Clock.svg";
 import PracticeInfo from "@/components/Practices/List/PracticeInfo.vue";
-import { getRandomImagePathByTheme } from "@/shared/services/ImageRandomizer";
-import { practiceTheme } from "@/shared/models/practiceTheme";
-import { enumProcessor } from "@/shared/services/Core";
+import { array } from "@/shared/services/Core";
 import { ref } from "vue";
+import { appearance } from "@/shared/services/Computed";
+
+const getDuration = (pattern, reps) => {
+    return ((array.sum(pattern) * reps) / 60).toFixed(1);
+};
 
 export default {
     props: {
@@ -72,9 +85,13 @@ export default {
 
     computed: {
         cardBgStyle() {
-            return {
-                backgroundImage: `url(${getRandomImagePathByTheme(enumProcessor.keyByValueToString(practiceTheme, this.practice.theme))})`,
-            };
+            return appearance.bgStyleByPath({
+                theme: this.practice.theme,
+                imagePath: this.practice.imagePath,
+            });
+        },
+        duration() {
+            return getDuration(this.practice.pattern, this.practice.reps);
         },
     },
 
@@ -109,12 +126,10 @@ export default {
     color: white;
     overflow: hidden;
     user-select: none;
-    background-position: top left;
-    background-size: 150%;
     transition: all 0.2s ease-in-out;
 
     &:hover {
-        background-size: 160%;
+        background-size: 160% !important;
     }
 
     &:active {
@@ -132,7 +147,9 @@ export default {
 
     &__link {
         display: inline-block;
-        position: relative;
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
         z-index: 1;
         padding: 2em 0em 0 2em;
     }
@@ -146,7 +163,7 @@ export default {
     }
 
     &__info {
-        font-size: 1.6em;
+        font-size: 1.2em;
         display: flex;
         width: 100%;
         justify-content: space-between;
@@ -157,7 +174,6 @@ export default {
 
     &__duration {
         width: 119%;
-        justify-content: space-between;
         margin-top: 2px;
         display: flex;
     }

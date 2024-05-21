@@ -14,4 +14,8 @@ const enumProcessor = {
         Object.keys(source).find((k) => source[k] === key),
 };
 
-export { is, enumProcessor };
+const array = {
+    sum: (arr) => arr.reduce((a, b) => a + b, 0),
+};
+
+export { is, enumProcessor, array };

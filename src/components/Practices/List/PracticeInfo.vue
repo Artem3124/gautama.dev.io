@@ -1,70 +1,81 @@
 <template>
     <div class="practice-info">
-        <div class="practice-info__card">
+        <div class="practice-info__card" :style="bgStyle">
+            <BackToPage
+                @click="togglePopup()"
+                class="practice-info__card__back"
+            />
             <div class="practice-info__card__content">
-                <slot
-                    name="practice-name"
-                    class="practice-info__card__content__name"
-                    >{{ practice.name }}</slot
-                >
-                <slot
-                    name="practice-description"
-                    class="practice-info__card__content__description"
-                    >{{ practice.description }}</slot
-                >
-                <div class="practice-info__card__content__duration"></div>
-                <slot
-                    name="practice-duration"
-                    class="practice-info__card__content__"
-                    >{{ practice.name }}</slot
-                >
-                <div class="practice-info__card--statisctics">
-                    <div>
+                <div class="practice-info__card__content__name">
+                    <slot
+                        name="practice-name"
+                        class="practice-info__card__content__name-slot"
+                    ></slot>
+                </div>
+                <div class="practice-info__card__content__description">
+                    <slot
+                        name="practice-description"
+                        class="practice-info__card__content__description-slot"
+                    ></slot>
+                </div>
+                <div class="practice-info__card__content__block">
+                    <ClockIcon
+                        class="practice-info__card__content__block__icon"
+                    />
+
+                    <div class="practice-info__card__content__block-wrap">
                         <slot
-                            name="practice-statistics-number"
-                            class="practice-info__name"
-                            >{{ practice.name }}</slot
-                        >
-                        <slot
-                            name="practice-statistics-cu"
-                            class="practice-info__name"
-                            >{{ practice.name }}</slot
-                        >
-                    </div>
-                    <div>
-                        <slot
-                            name="practice-statistics-name"
-                            class="practice-info__name"
-                            >{{ practice.name }}</slot
-                        >
-                        <slot
-                            name="practice-statistics-description"
-                            class="practice-info__name"
-                            >{{ practice.name }}</slot
-                        >
+                            name="practice-duration"
+                            class="practice-info__card__content__block-slot"
+                        ></slot>
                     </div>
                 </div>
+                <div class="practice-info__card__content__block">
+                    <ClockIcon
+                        class="practice-info__card__content__block__icon"
+                    />
+                    <slot
+                        name="practice-rewards"
+                        class="practice-info__card__content__rewards-slot"
+                    ></slot>
+                </div>
             </div>
-        </div>
-        <div class="practice-info-content">
-            <slot />
-            <button class="popup-close" @click="togglePopup()">
-                Close Popup
-            </button>
         </div>
     </div>
 </template>
 
 <script>
+import { appearance } from "@/shared/services/Computed";
+import BackToPage from "@/assets/svg/icons/BackToPage.svg";
+import ClockIcon from "@/assets/icons/Clock.svg";
+
 export default {
     props: {
         practice: {
             type: Object,
             required: true,
         },
+        imagePath: {
+            tyep: String,
+            required: true,
+        },
         togglePopup: {
             type: Function,
             required: true,
+        },
+    },
+
+    components: {
+        BackToPage,
+        ClockIcon,
+    },
+
+    computed: {
+        bgStyle() {
+            return appearance.bgStyleByPath({
+                theme: this.practice.theme,
+                imagePath: this.imagePath,
+            });
         },
     },
 };
@@ -78,15 +89,91 @@ export default {
     right: 0;
     bottom: 0;
     z-index: 99;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.4);
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    .practice-info {
-        background: #fff;
-        padding: 32px;
+    &__card {
+        padding: 1em 2em;
+        border-radius: 15px;
+        max-width: 408px;
+        color: #fffcf0;
+
+        &__back {
+            cursor: pointer;
+            svg {
+                height: 24px;
+            }
+        }
+
+        &__content {
+            margin-top: 1em;
+            display: flex;
+            flex-direction: column;
+
+            &__name {
+                font-size: 48px;
+                font-weight: 400;
+                text-align: left;
+            }
+
+            &__description {
+                font-size: 16px;
+                margin-top: 1em;
+                font-weight: 100;
+                text-align: left;
+                margin-bottom: 5em;
+            }
+
+            &__block {
+                font-size: 16px;
+                font-weight: 400;
+                text-align: center;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                background: rgb(255, 255, 255, 0.2);
+                backdrop-filter: blur(0.5em);
+                border-radius: 1em;
+                margin-bottom: 1em;
+                padding: 0.5em 1em;
+
+                &-wrap {
+                    font-size: 2em;
+                    height: fit-content;
+                    width: fit-content;
+                }
+
+                &__icon {
+                    width: 4em;
+                    height: auto;
+                }
+            }
+
+            &__rewards {
+                margin-top: 1em;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                &-main {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                &-description {
+                    margin-top: 0.5em;
+                    font-size: 16px;
+                    font-weight: 400;
+                    text-align: center;
+                }
+            }
+        }
     }
 }
 </style>
