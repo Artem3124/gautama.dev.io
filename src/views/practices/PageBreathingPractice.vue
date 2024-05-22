@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { getBreathPracticeById } from '@/components/Practices/Breathing/PracticesList';
+import { breathingPractices } from '@/components/Practices/Breathing/PracticesList';
 import SphereAndInstructions from '@/components/Practices/Breathing/SphereAndInstructions.vue';
 
 export default {
@@ -14,8 +14,7 @@ export default {
         SphereAndInstructions,
     },
     // We will pass props through the router
-    // So we could start the right practice
-    // By it's id
+    // So we could start the right practice by it's id
     props: {
         id: {
             type: String,
@@ -25,7 +24,7 @@ export default {
 
     computed: {
         getIntervals() {
-            return getBreathPracticeById(this.id);
+            return breathingPractices[this.id];
         }
     }
 }

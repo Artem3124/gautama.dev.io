@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
 const PageIndex = () => import('@/views/PageIndex.vue');
-const PagePracticeIndex = () => import('@/views/practices/PageIndex.vue');
+const PagePracticesList = () => import('@/views/practices/PagePracticesList.vue');
 const PageBreathPractice = () => import('@/views/practices/PageBreathingPractice.vue');
 const PageMediationPractice = () => import('@/views/practices/PageMeditationPractice.vue');
 const PageActivities = () => import('@/views/PageActivities.vue');
@@ -19,7 +19,7 @@ const router = createRouter({
         {
             path: '/practices',
             name: 'practices',
-            component: PagePracticeIndex,
+            component: PagePracticesList,
         },
         {
             path: '/practices/end/:theme',

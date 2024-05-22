@@ -1,6 +1,9 @@
-// Load colors from file
+@import 'fonts.scss';
+
+// Load colors and constants from file
 :root {
     @import 'default-theme';
+    @import 'variables.scss';
 }
 
 html {
@@ -30,7 +33,7 @@ b {
 }
 
 p {
-    margin: 0.5rem 0;
+    margin: 0.2rem 0;
 }
 
 a {
@@ -52,7 +55,7 @@ a:hover {
 }
 
 .muted {
-    color: var(--hint-color);
+    opacity: .7;
 }
 
 button {
@@ -145,6 +148,7 @@ input {
 
 /* Firefox */
 input[type=number] {
+    appearance: textfield !important;
     -moz-appearance: textfield !important;
 }
 

@@ -1,40 +1,39 @@
 <template>
-    <div
-        class="gradient-sphere"
-        @click="openPractice"
-    >
-        <!-- <div class="gradient-sphere--lines">
-            <BreathingLines/>
-        </div>   -->
-        <div class="gradient-sphere--text">
-            Practice
-        </div>
-        <div class="gradient-sphere--bg" />
-        <div class="gradient-sphere--new-lines" />
+    <div class="gradient-sphere" @click="openPractice">
+        <BreathEllipse class="gradient-sphere" :size="'350px'">
+            <template #content>Practice </template>
+        </BreathEllipse>
+        <!-- <div class="gradient-sphere--text">Practice</div> -->
+        <!-- <div class="gradient-sphere--bg" /> -->
+        <!-- <div class="gradient-sphere--new-lines" /> -->
     </div>
 </template>
 
 <script>
-// import BreathingLines from '@/assets/img/breathing-lines.svg';
+import BreathEllipse from "@/shared/components/svg/BreathEllipse.vue";
 
 export default {
+    components: {
+        BreathEllipse,
+    },
     methods: {
         openPractice() {
             this.$router.push({
-                name: 'breath',
+                name: "breath",
                 params: {
                     id: 0,
                 },
-            })
-        }
-    }
-}
+            });
+        },
+    },
+};
 </script>
 
 <style lang="scss">
 .gradient-sphere {
     position: relative;
     white-space: pre;
+    cursor: pointer;
 
     &--lines {
         position: absolute;
@@ -60,6 +59,7 @@ export default {
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 999;
+        user-select: none;
     }
 
     &--bg {
@@ -100,7 +100,7 @@ export default {
     transform: translate(-50%, -50%);
     background-color: white;
     border-radius: 50%;
-    opacity: .2;
+    opacity: 0.2;
 }
 
 @keyframes mainScreenSphere {
