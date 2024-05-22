@@ -1,17 +1,17 @@
 <template>
     <main class="content">
         <div class="main-bg main-screen">
-            <MainScreen />
+            <GradientSphere />
         </div>
     </main>
 </template>
 
 <script>
-import MainScreen from "@/components/MainScreen/MainScreen.vue";
+import GradientSphere from "@/shared/components/GradientSphere.vue";
 
 export default {
     components: {
-        MainScreen,
+        GradientSphere,
     },
 };
 </script>
