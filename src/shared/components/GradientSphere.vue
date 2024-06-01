@@ -23,6 +23,7 @@ import Concentration from "@/shared/components/svg/ellipses/Concentration.vue";
 import Peace from "@/shared/components/svg/ellipses/Peace.vue";
 import Sleep from "@/shared/components/svg/ellipses/Sleep.vue";
 import Lines from "@/shared/components/svg/ellipses/Lines.vue";
+import userHttpService from "../services/http/userHttp";
 
 export default {
     components: {
@@ -56,12 +57,15 @@ export default {
     },
     methods: {
         openPractice() {
-            this.$router.push({
-                name: "breath",
-                params: {
-                    id: 0,
-                },
+            userHttpService.getAll().then((response) => {
+                console.log(response);
             });
+            // this.$router.push({
+            //     name: "breath",
+            //     params: {
+            //         id: 0,
+            //     },
+            // });
         },
     },
 };

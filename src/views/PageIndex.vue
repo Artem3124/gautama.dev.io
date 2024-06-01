@@ -5,6 +5,7 @@
                 :blur="20"
                 :size="'20em'"
                 :theme="practiceTheme.base"
+            
             >
                 Gleb Malina
             </GradientSphere>
