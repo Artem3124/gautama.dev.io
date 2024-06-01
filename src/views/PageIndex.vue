@@ -1,17 +1,29 @@
 <template>
     <main class="content">
         <div class="main-bg main-screen">
-            <GradientSphere />
+            <GradientSphere
+                :blur="20"
+                :size="'20em'"
+                :theme="practiceTheme.base"
+            >
+                Gleb Malina
+            </GradientSphere>
         </div>
     </main>
 </template>
 
 <script>
 import GradientSphere from "@/shared/components/GradientSphere.vue";
+import { practiceTheme } from "@/shared/models/practiceTheme";
 
 export default {
     components: {
         GradientSphere,
+    },
+    data() {
+        return {
+            practiceTheme,
+        };
     },
 };
 </script>

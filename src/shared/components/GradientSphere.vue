@@ -1,20 +1,58 @@
 <template>
     <div class="gradient-sphere" @click="openPractice">
-        <BreathEllipse class="gradient-sphere" :size="'350px'">
-            <template #content>Practice </template>
-        </BreathEllipse>
-        <!-- <div class="gradient-sphere--text">Practice</div> -->
-        <!-- <div class="gradient-sphere--bg" /> -->
-        <!-- <div class="gradient-sphere--new-lines" /> -->
+        <Base :blur="blur" :size="size" v-if="theme == practiceTheme.base" />
+        <Peace :blur="blur" :size="size" v-if="theme == practiceTheme.peace" />
+        <Concentration
+            :blur="blur"
+            :size="size"
+            v-if="theme == practiceTheme.concentration"
+        />
+        <Sleep :blur="blur" :size="size" v-if="theme == practiceTheme.sleep" />
+        <div class="gradient-sphere__text">
+            <slot> </slot>
+        </div>
+
+        <Lines :size="size" class="gradient-sphere__lines" />
     </div>
 </template>
 
 <script>
-import BreathEllipse from "@/shared/components/svg/BreathEllipse.vue";
+import { practiceTheme } from "@/shared/models/practiceTheme";
+import Base from "@/shared/components/svg/ellipses/Base.vue";
+import Concentration from "@/shared/components/svg/ellipses/Concentration.vue";
+import Peace from "@/shared/components/svg/ellipses/Peace.vue";
+import Sleep from "@/shared/components/svg/ellipses/Sleep.vue";
+import Lines from "@/shared/components/svg/ellipses/Lines.vue";
 
 export default {
     components: {
-        BreathEllipse,
+        Base,
+        Lines,
+        Concentration,
+        Sleep,
+        Peace,
+    },
+    props: {
+        theme: {
+            type: String,
+            default: practiceTheme.base,
+            required: true,
+        },
+        size: {
+            type: String,
+            default: "100px",
+            required: false,
+        },
+        blur: { 
+            type: Number, 
+            default: 40,
+            required: true,
+        },
+    },
+    data() {
+        return {
+            practiceTheme,
+        };
     },
     methods: {
         openPractice() {
@@ -35,22 +73,22 @@ export default {
     white-space: pre;
     cursor: pointer;
 
-    &--lines {
+    &__lines {
         position: absolute;
-        z-index: 1000;
+        z-index: 6;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        // animation: mainScreenLines 40s linear infinite;
+        animation: mainScreenLines 40s linear infinite;
 
-        svg {
-            width: 68vw;
-            max-width: 345px; // Might delete later
-            height: auto;
-        }
+        // svg {
+        //     width: 68vw;
+        //     max-width: 345px; // Might delete later
+        //     height: auto;
+        // }
     }
 
-    &--text {
+    &__text {
         color: var(--bg-color);
         font-size: 24px;
         font-weight: 800;
@@ -58,7 +96,7 @@ export default {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        z-index: 999;
+        z-index: 7;
         user-select: none;
     }
 
