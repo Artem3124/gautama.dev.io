@@ -14,7 +14,6 @@ export default {
 
   computed: {
     initials() {
-      console.log(this.name);
       return this.name
         .split(" ")
         .map((word) => word[0])
