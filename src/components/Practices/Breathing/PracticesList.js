@@ -5,7 +5,7 @@ export const breathingPractices = [
     {
         id: 0,
         name: "Free Breathing",
-        pattern: [4, 4, 8],
+        pattern: [4, 4, 8, 0],
         reps: 4,
         theme: practiceTheme.peace,
         description:
@@ -18,7 +18,7 @@ export const breathingPractices = [
     {
         id: 1,
         name: "Filling Breath",
-        pattern: [4, 4, 4],
+        pattern: [4, 4, 4, 0],
         reps: 12,
         description:
             "Start by focusing on your breath. Gradually shift your attention to the sensations in your body during each inhale and exhale. Repeat this process several times, allowing yourself to dive deeper into the depths of your consciousness.",
@@ -30,7 +30,7 @@ export const breathingPractices = [
     {
         id: 2,
         name: "Chamomile Breath",
-        pattern: [5, 3, 6],
+        pattern: [5, 3, 6, 0],
         reps: 5,
         description:
             "Start by focusing on your breath. As you continue, concentrate on releasing any negative thoughts and tension with each exhale. Repeat this cycle several times or until you notice a significant improvement in how you feel.",

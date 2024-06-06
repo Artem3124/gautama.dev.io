@@ -1,6 +1,6 @@
 <template>
     <div class="content">
-        <SphereAndInstructions :intervals="getIntervals" />
+        <SphereAndInstructions :practice="getPractice" />
     </div>
 </template>
 
@@ -23,8 +23,8 @@ export default {
     },
 
     computed: {
-        getIntervals() {
-            return breathingPractices[this.id];
+        getPractice() {
+            return breathingPractices[3];
         }
     }
 }

@@ -33,4 +33,6 @@ const extractFromString = {
             .join(""),
 };
 
-export { is, enumProcessor, array, extractFromString };
+const wait = async (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+export { is, enumProcessor, array, extractFromString, wait };
