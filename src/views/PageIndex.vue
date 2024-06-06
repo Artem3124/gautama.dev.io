@@ -49,12 +49,7 @@ export default {
     },
     methods: {
         openPractice() {
-            this.$router.push({
-                name: "breath",
-                params: {
-                    id: 0,
-                },
-            });
+            this.$router.push({ name: "breath", params: { id: 0 } });
         },
     },
 };

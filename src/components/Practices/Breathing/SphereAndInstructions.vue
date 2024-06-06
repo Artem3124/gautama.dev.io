@@ -29,6 +29,7 @@
 import GradientSphere from "@/shared/components/GradientSphere.vue";
 import { practiceTheme } from "@/shared/models/practiceTheme";
 import { wait } from "@/shared/services/Core";
+import { enumProcessor } from "@/shared/services/Core";
 
 const instructions = {
     0: "Inhale",
@@ -76,7 +77,7 @@ export default {
         instructionId(newId) {
             switch (newId) {
                 case 0:
-                case 1: 
+                case 1:
                     this.sizeMultiplier = 1.3;
                     break;
                 default:
@@ -117,6 +118,18 @@ export default {
 
                 this.repetition++;
             }
+
+            this.showProgress = false;
+            this.$router.push({
+                name: "practice-end",
+                params: {
+                    theme: enumProcessor.keyByValueToString(
+                        practiceTheme,
+                        practiceTheme.base,
+                    ),
+                },
+            });
+
         },
 
         // Timer for progressbar
