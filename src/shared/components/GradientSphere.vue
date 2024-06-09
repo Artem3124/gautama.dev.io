@@ -25,8 +25,11 @@
         <div class="gradient-sphere__text">
             <slot> </slot>
         </div>
-
-        <Lines :svgStyles="stepLength" :size="lineSize" class="gradient-sphere__lines" />
+        <Lines
+            :svgStyles="stepLength"
+            :size="lineSize"
+            class="gradient-sphere__lines"
+        />
     </div>
 </template>
 
@@ -97,7 +100,6 @@ export default {
 .gradient-sphere {
     white-space: pre;
     cursor: pointer;
-
 
     &__sphere {
         position: absolute;

@@ -18,7 +18,7 @@
                     @click="openPractice"
                     class="main-screen__sphere"
                 >
-                    Gleb Malina
+                    Base Practice
                 </GradientSphere>
             </div>
         </div>
@@ -31,13 +31,6 @@ import KarmaCounter from "@/shared/components/KarmaCounter.vue";
 import { practiceTheme } from "@/shared/models/practiceTheme";
 
 export default {
-    props: {
-        karma: {
-            type: Number,
-            required: true,
-            default: 100,
-        },
-    },
     components: {
         KarmaCounter,
         GradientSphere,
@@ -45,6 +38,7 @@ export default {
     data() {
         return {
             practiceTheme,
+            karma: 100,
         };
     },
     methods: {

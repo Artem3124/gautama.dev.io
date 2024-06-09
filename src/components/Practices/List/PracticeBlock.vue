@@ -9,7 +9,7 @@
             </div>
             <div class="practice-list-block__info">
                 <div>
-                    <div>{{ practice.theme }}</div>
+                    <div>{{ themeMap[practice.theme] }}</div>
                     <div class="practice-list-block__duration">
                         <div class="practice-list-block__icon-wrap">
                             <ClockIcon
@@ -92,6 +92,15 @@ export default {
         },
         duration() {
             return getDuration(this.practice.pattern, this.practice.reps);
+        },
+
+        themeMap() {
+            return {
+                base: "Base",
+                concentration: "Concentration",
+                peace: "Peace",
+                sleep: "Sleep",
+            };
         },
     },
 

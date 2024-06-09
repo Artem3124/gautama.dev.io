@@ -2,8 +2,12 @@
     <div :style="background" class="content end-page">
         <div class="end-page__header">Stay tuned</div>
         <CardWrapper class="end-page__card" :theme="theme">
-            <p class="end-page__card--content">Motivation stupid bullshit makes you stronger</p>
-            <button :class="`end-page__card--button ${theme}-btn `">Share</button>
+            <p class="end-page__card--content">
+                Motivation stupid bullshit makes you stronger
+            </p>
+            <button :class="`end-page__card--button ${theme}-btn `">
+                Share
+            </button>
         </CardWrapper>
         <div class="end-page__karma-counter">
             <Text>+ 30</Text>
@@ -13,10 +17,10 @@
 </template>
 
 <script>
-import CardWrapper from '@/components/CardWrapper/CardWrapper.vue';
-import KarmaIcon from '@/assets/svg/icons/KarmaCoin.svg';
-import { getBackgroundByTheme } from '@/shared/services/ThemeProvider';
-import { Text } from 'vue';
+import CardWrapper from "@/components/CardWrapper/CardWrapper.vue";
+import KarmaIcon from "@/assets/svg/icons/KarmaCoin.svg";
+import { Text } from "vue";
+import { appearance, bgStyleBuilder } from "@/shared/services/Computed";
 
 export default {
     props: {
@@ -34,12 +38,10 @@ export default {
 
     computed: {
         background() {
-            const bg = getBackgroundByTheme(this.theme);
-            return {
-                background: `url('${bg}')`,
-                backgroundSize: 'auto 100vh',
-                backgroundPosition: 'top',
-            }
+            return appearance.bgByEnumTheme({
+                theme: this.theme,
+                styleBuilder: bgStyleBuilder,
+            });
         },
     },
 };
@@ -80,7 +82,6 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
-
 
         svg {
             width: 55px;

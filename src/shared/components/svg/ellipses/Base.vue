@@ -72,16 +72,6 @@ export default {
             required: false,
         },
     },
-    data() {
-        return {
-            dataSize: this.size,
-        };
-    },
-    computed: {
-        data() {
-            return this.size;
-        },
-    },
 };
 </script>
 <style lang="scss"></style>

@@ -1,10 +1,10 @@
 <template>
-    <div class="main-bg practice-index-container">
+    <div class="practice-index-container">
         <GradientSphere
             class="gradient-sphere"
             :blur="20"
             :size="computedSize"
-            :theme="practiceTheme.base"
+            :theme="theme"
             :step-duration="step"
         >
             <transition name="fade" mode="out-in">
@@ -63,6 +63,7 @@ export default {
             sphereSize: 20,
             sizeMultiplier: 1,
             step: 0,
+            theme: this.practice.theme
         };
     },
 
@@ -125,7 +126,7 @@ export default {
                 params: {
                     theme: enumProcessor.keyByValueToString(
                         practiceTheme,
-                        practiceTheme.base,
+                        this.theme,
                     ),
                 },
             });

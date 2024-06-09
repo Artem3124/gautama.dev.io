@@ -1,8 +1,8 @@
 const practiceTheme = {
-  base: "Basic",
-  peace: "Peace",
-  concentration: "Concentration",
-  sleep: "Sleep",
+  base: "base",
+  peace: "peace",
+  concentration: "concentration",
+  sleep: "sleep",
 };
 
 export { practiceTheme };

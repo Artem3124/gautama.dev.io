@@ -1,5 +1,5 @@
 <template>
-    <div class="content practices-list">
+    <div class="content practices-list main-bg">
         <div class="practices-list-header">
             <h1 style="font-weight: 800; color: white">Select practice</h1>
         </div>
@@ -9,10 +9,10 @@
         <h2 class="practices-list-subheader" id="Breathing">Breathing</h2>
         <div class="practices-list-container">
             <PracticeBlock
-                v-for="(bp, index) in breathingPractices"
-                :practice="bp"
+                v-for="practice in breathingPractices"
+                :practice="practice"
                 practiceType="breath"
-                :id="index"
+                :id="practice.id"
             />
         </div>
         <h2 class="practices-list-subheader" id="Meditation">Meditation</h2>
@@ -40,17 +40,17 @@ export default {
 </script>
 
 <style lang="scss">
-.practices-list {
-    background: linear-gradient(
-        344deg,
-        #cddaf1 0%,
-        rgba(111, 159, 252, 1) 22%,
-        rgba(192, 214, 251, 1) 50%,
-        rgba(184, 207, 249, 1) 72%,
-        rgba(139, 174, 240, 1) 92%
-    );
-    margin-bottom: var(--navbar-height);
-}
+//.practices-list {
+//    background: linear-gradient(
+//        344deg,
+//        #cddaf1 0%,
+//        rgba(111, 159, 252, 1) 22%,
+//        rgba(192, 214, 251, 1) 50%,
+//        rgba(184, 207, 249, 1) 72%,
+//        rgba(139, 174, 240, 1) 92%
+//    );
+//    margin-bottom: var(--navbar-height);
+//}
 
 .practices-list-header {
     width: 100%;

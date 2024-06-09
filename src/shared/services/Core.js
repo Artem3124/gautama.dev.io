@@ -19,7 +19,7 @@ const array = {
 };
 
 // extractFromString.number("1234fdasfd") => 1234
-// extractFromString.number("fdasfd") => fdasfd
+// extractFromString.string("12312fdasfd") => fdasfd
 const extractFromString = {
     number: (s) =>
         parseInt(

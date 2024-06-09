@@ -47,6 +47,13 @@
                         </div>
                     </div>
                 </div>
+                <router-link
+                    @click="togglePopup()"
+                    :class="`practice-info__card__content__button-start ${practice.theme}-btn`"
+                    :to="{ name: practiceType, params: { id: practice.id } }"
+                >
+                    Start Practice
+                </router-link>
             </div>
         </div>
     </div>
@@ -154,9 +161,13 @@ export default {
                     background: rgba(255, 255, 255, 0.2);
                     backdrop-filter: blur(0.5em);
                     border-radius: 0.5em;
-                    margin: 0 0.5em;
+                    margin-right: 1em;
                     width: -webkit-fill-available;
                     padding: 0.5em 1em;
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
 
                     &-wrap {
                         font-size: 2em;
@@ -169,6 +180,11 @@ export default {
                         height: auto;
                     }
                 }
+            }
+
+            &__button-start {
+                border-radius: 0.5em;
+                text-align: center;
             }
 
             &__rewards {

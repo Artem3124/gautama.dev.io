@@ -1,6 +1,7 @@
 <template>
     <svg
         :width="size"
+        :style="svgStyles"
         viewBox="0 0 791 791"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -79,6 +80,13 @@ export default {
             type: Number,
             default: 30,
             required: true,
+        },
+        svgStyles: {
+            type: Object,
+            default: () => ({
+                transition: "width 2s, height 2s"
+            }),
+            required: false,
         },
     },
 };

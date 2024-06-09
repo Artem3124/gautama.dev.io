@@ -1,15 +1,15 @@
 <template>
-    <div class="content">
-        <SphereAndInstructions :practice="getPractice" />
+    <div class="content" :style="background">
+        <SphereAndInstructions :practice="practice" />
     </div>
 </template>
 
 <script>
-import { breathingPractices } from '@/components/Practices/Breathing/PracticesList';
-import SphereAndInstructions from '@/components/Practices/Breathing/SphereAndInstructions.vue';
+import { breathingPractices } from "@/components/Practices/Breathing/PracticesList";
+import SphereAndInstructions from "@/components/Practices/Breathing/SphereAndInstructions.vue";
+import { appearance, bgStyleBuilder } from "@/shared/services/Computed";
 
 export default {
-
     components: {
         SphereAndInstructions,
     },
@@ -22,14 +22,22 @@ export default {
         },
     },
 
+    data() {
+        return {
+            practice: breathingPractices[this.id],
+        };
+    },
+
     computed: {
-        getPractice() {
-            return breathingPractices[3];
-        }
-    }
-}
+        background() {
+            console.log(this.practice.theme);
+            return appearance.bgByEnumTheme({
+                theme: this.practice.theme,
+                styleBuilder: bgStyleBuilder,
+            });
+        },
+    },
+};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
