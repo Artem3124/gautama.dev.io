@@ -49,10 +49,13 @@
                 </div>
                 <router-link
                     @click="togglePopup()"
-                    :class="`practice-info__card__content__button-start ${practice.theme}-btn`"
                     :to="{ name: practiceType, params: { id: practice.id } }"
                 >
-                    Start Practice
+                    <div
+                        :class="`practice-info__card__content__button-start ${practice.theme}-btn`"
+                    >
+                        Start Practice
+                    </div>
                 </router-link>
             </div>
         </div>
@@ -71,6 +74,10 @@ export default {
             type: Object,
             required: true,
         },
+        practiceType: { 
+            type: String,
+            required: true,
+        },
         imagePath: {
             tyep: String,
             required: true,
@@ -87,6 +94,11 @@ export default {
         KarmaIconNoBg,
     },
 
+    data() {
+        return {
+            id: this.practice.id,
+        };
+    },
     computed: {
         bgStyle() {
             return appearance.bgStyleByPath({

@@ -3,10 +3,15 @@ import * as core from "@/shared/services/Core.js";
 const is = core.is;
 
 const backgrounds = {
-    base: "/src/assets/svg/backgrounds/base-bg.svg",
-    peace: "/src/assets/svg/backgrounds/peace-bg.svg",
-    concentration: "/src/assets/svg/backgrounds/concentration-bg.svg",
-    sleep: "/src/assets/svg/backgrounds/sleep-bg.svg",
+    base: new URL("@/assets/svg/backgrounds/base-bg.svg", import.meta.url).href,
+    peace: new URL("@/assets/svg/backgrounds/peace-bg.svg", import.meta.url)
+        .href,
+    concentration: new URL(
+        "@/assets/svg/backgrounds/concentration-bg.svg",
+        import.meta.url,
+    ).href,
+    sleep: new URL("@/assets/svg/backgrounds/sleep-bg.svg", import.meta.url)
+        .href,
 };
 
 const dim = {

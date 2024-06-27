@@ -33,6 +33,7 @@
     <PracticeInfo
         v-if="popupTriggers.buttonTrigger"
         :practice="practice"
+        :practiceType="practiceType"
         :imagePath="practice.imagePath"
         :togglePopup="() => togglePopup('buttonTrigger')"
     >

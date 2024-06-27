@@ -6,8 +6,6 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vite build && cd dist/ && zip prod.zip -r .",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
     "preview": "vite preview",
     "lint": "ESLINT_USE_FLAT_CONFIG=false npx eslint --config ./eslint.config.cjs --ext .js --ext .vue ./src",
     "lint-autofix": "ESLINT_USE_FLAT_CONFIG=false npx eslint --config ./eslint.config.cjs --ext .js --ext .vue ./src --fix"
