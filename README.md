@@ -1,17 +1,25 @@
-# Gautama фронтенд
+# Gautama front-end
 
-## Установка:
+## Installation:
 
 ```
-git clone https://kerekerekerek@dev.azure.com/kerekerekerek/Gautama/_git/Gautama
+git clone https://gautamaOrg@dev.azure.com/gautamaOrg/Meditation/_git/MeditationFront
 cd gautama
 npm run install
 ```
 
-## Запуск для теста в браузере:
+## Running:
 
 ```
 npm run dev
 ```
 
-Открывать по адресу: http://localhost:5173
+### Docker: 
+```bash
+docker build -t gautama-front . 
+```
+
+```bash
+docker run -d -p 8080:80 --name ${container_id} gautama-front
+```
+

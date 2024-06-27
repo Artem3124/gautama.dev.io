@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host",
+    "docker-build": "vite build",
     "build": "vite build && cd dist/ && zip prod.zip -r .",
     "preview": "vite preview",
     "lint": "ESLINT_USE_FLAT_CONFIG=false npx eslint --config ./eslint.config.cjs --ext .js --ext .vue ./src",
